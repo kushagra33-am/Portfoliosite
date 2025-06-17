@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kushagra Aman - Web & Digital Media Professional Portfolio">
+    <title>Kushagra Aman - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background: linear-gradient(180deg, #0a0a1a, #1a1a2e); 
+            color: #e0e0e0; 
+            font-family: 'Orbitron', sans-serif; 
+        }
+        .parallax { 
+            background-attachment: fixed; 
+            background-size: cover; 
+            background-position: center; 
+        }
+        .neon-text { 
+            text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff; 
+            animation: pulse 2s ease-in-out infinite; 
+        }
+        @keyframes pulse { 
+            0% { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff; } 
+            50% { text-shadow: 0 0 15px #00d4ff, 0 0 25px #00d4ff, 0 0 40px #00d4ff; } 
+            100% { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff; } 
+        }
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: all 0.8s ease-in-out; 
+        }
+        .fade-in.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        .hover-scale { 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+        .hover-scale:hover { 
+            transform: scale(1.05); 
+            box-shadow: 0 0 15px #00d4ff; 
+        }
+        nav a { 
+            transition: color 0.3s ease; 
+        }
+        nav a:hover { 
+            color: #00d4ff; 
+        }
+        .particle-bg { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: -1; 
+        }
+        .svg-animation path { 
+            stroke: #00d4ff; 
+            stroke-width: 2; 
+            fill: none; 
+            stroke-dasharray: 1000; 
+            stroke-dashoffset: 1000; 
+            animation: draw 5s linear forwards; 
+        }
+        @keyframes draw { 
+            to { stroke-dashoffset: 0; } 
+        }
+        .project-card { 
+            background: linear-gradient(135deg, #1a1a2e, #2a2a4a); 
+            border: 1px solid #00d4ff; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .project-card::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: -100%; 
+            width: 100%; 
+            height: 100%; 
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent); 
+            transition: 0.5s; 
+        }
+        .project-card:hover::before { 
+            left: 100%; 
+        }
+
+        .video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.7) contrast(1.1); /* Adjust for cyberpunk vibe and text readability */
+}
+.project-card {
+    background: rgba(26, 26, 46, 0.8); /* Semi-transparent to let video show through */
+    backdrop-filter: blur(5px); /* Subtle blur for modern look */
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-transparent fixed w-full top-0 z-20">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold neon-text">Kushagra Aman</h1>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="text-gray-300">Home</a></li>
+                <li><a href="#about" class="text-gray-300">About</a></li>
+                <li><a href="#experience" class="text-gray-300">Experience</a></li>
+                <li><a href="#projects" class="text-gray-300">Projects</a></li>
+                <li><a href="#skills" class="text-gray-300">Skills</a></li>
+                <li><a href="#contact" class="text-gray-300">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <canvas id="particle-canvas" class="particle-bg"></canvas>
+        <div class="container mx-auto px-4 text-center fade-in z-10">
+            <svg class="svg-animation w-32 h-32 mx-auto mb-4" viewBox="0 0 100 100">
+                <path d="M10 90 C40 60, 60 40, 90 10" />
+            </svg>
+            <h2 class="text-5xl font-bold neon-text">Kushagra Aman</h2>
+            <p class="text-xl mb-6 text-gray-300">Web & Digital Media Professional | Crafting Future-Ready Solutions</p>
+            <a href="#projects" class="bg-transparent border-2 border-[#00d4ff] text-[#00d4ff] px-6 py-3 rounded-full font-semibold hover:bg-[#00d4ff] hover:text-black">Explore My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 parallax" style="background-image: url('aboutneon.jpg');">
+        <div class="container mx-auto px-4 fade-in">
+            <h2 class="text-4xl font-bold text-center neon-text">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center bg-[#1a1a2e] p-8 rounded-lg border border-[#00d4ff]">
+                <img src="profile.png" alt="Kushagra Aman" class="w-64 h-64 rounded-full mb-6 md:mb-0 md:mr-8 border-4 border-[#00d4ff]">
+                <div>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        I'm a passionate Web Developer with over a year of experience in crafting scalable web applications using ASP.NET, C#, JavaScript, and MySQL. 
+                        Skilled in both frontend and backend, I'm diving into React and MongoDB to push boundaries. 
+                        My projects, from a YouTube API-based music player to a library management system, reflect my ability to solve real-world challenges with innovative digital solutions. 
+                        Ready to lead in hybrid roles, I thrive in creating impactful, user-centric experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="container mx-auto px-4 fade-in">
+            <h2 class="text-4xl font-bold text-center neon-text">Work Experience</h2>
+            <div class="space-y-8">
+                <div class="project-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Web Developer</h3>
+                    <p class="text-gray-300 mb-2">Sanjivani Media and Technologies Private Limited, Patna | Sep 2024 - Present</p>
+                    <ul class="list-disc pl-5 text-gray-300">
+                        <li>Developed responsive web applications for education and healthcare using ASP.NET and MySQL.</li>
+                        <li>Delivered 3+ live projects, boosting website speed by 30% through optimization.</li>
+                        <li>Collaborated with non-tech teams for user-friendly interfaces.</li>
+                    </ul>
+                </div>
+                <div class="project-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Web & Digital Media Intern</h3>
+                    <p class="text-gray-300 mb-2">Sahajshakti Sarvakalyaan Trust, Patna | Mar 2024 - Aug 2024</p>
+                    <ul class="list-disc pl-5 text-gray-300">
+                        <li>Built and managed NGO website to support women empowerment initiatives.</li>
+                        <li>Designed campaign media, increasing social media engagement by 25%.</li>
+                        <li>Enhanced discoverability by mapping outreach centers on Google Maps.</li>
+                    </ul>
+                </div>
+                <div class="project-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Digital Media & Website Coordinator (Remote)</h3>
+                    <p class="text-gray-300 mb-2">Aavaran Sajja, Patna | Mar 2024 - Aug 2024</p>
+                    <ul class="list-disc pl-5 text-gray-300">
+                        <li>Managed website and catalog updates for a sustainable fashion brand.</li>
+                        <li>Created SEO-optimized content for 100+ products, improving store performance.</li>
+                        <li>Boosted online sales by 15% through digital branding efforts.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+   <section id="projects" class="py-20 relative overflow-hidden">
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="project.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container mx-auto px-4 fade-in relative z-10">
+        <h2 class="text-4xl font-bold text-center neon-text">My Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="project-card p-6 rounded-lg hover-scale">
+                <img src="dlusionP.png" alt="Delusion Music Player" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Delusion – Music Player Web App</h3>
+                <p class="text-gray-300">2025 | HTML, CSS, JavaScript, YouTube API</p>
+                <p class="text-gray-300">A responsive music player with YouTube API for streaming and playback controls.</p>
+            </div>
+            <div class="project-card p-6 rounded-lg hover-scale">
+                <img src="https://via.placeholder.com/400x200" alt="Library Management System" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Library Management System</h3>
+                <p class="text-gray-300">2024 | ASP.NET, C#, MySQL, HTML, CSS</p>
+                <p class="text-gray-300">A full-stack CRUD app for book records, built with MVC architecture.</p>
+            </div>
+            <div class="project-card p-6 rounded-lg hover-scale">
+                <img src="https://via.placeholder.com/400x200" alt="NGO Website" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">NGO Website with Donation Page</h3>
+                <p class="text-gray-300">2024 | HTML, CSS, JavaScript</p>
+                <p class="text-gray-300">A static, accessible NGO website with a donation interface.</p>
+            </div>
+            <div class="project-card p-6 rounded-lg hover-scale">
+                <img src="https://via.placeholder.com/400x200" alt="Restaurant Management System" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Restaurant Management System</h3>
+                <p class="text-gray-300">ASP.NET, C#, MySQL</p>
+                <p class="text-gray-300">A web system for order tracking and menu management.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-4 fade-in">
+            <h2 class="text-4xl font-bold text-center neon-text">My Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-[#00d4ff] rounded-full flex items-center justify-center text-black text-xl">C#</div>
+                    <p class="text-gray-300">C#</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-[#00d4ff] rounded-full flex items-center justify-center text-black text-xl">JS</div>
+                    <p class="text-gray-300">JavaScript</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-[#00d4ff] rounded-full flex items-center justify-center text-black text-xl">ASP.NET</div>
+                    <p class="text-gray-300">ASP.NET</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-[#00d4ff] rounded-full flex items-center justify-center text-black text-xl">MySQL</div>
+                    <p class="text-gray-300">MySQL</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-[#00d4ff] rounded-full flex items-center justify-center text-black text-xl">HTML</div>
+                    <p class="text-gray-300">HTML5</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-[#00d4ff] rounded-full flex items-center justify-center text-black text-xl">CSS</div>
+                    <p class="text-gray-300">CSS3</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-[#00d4ff] rounded-full flex items-center justify-center text-black text-xl">React</div>
+                    <p class="text-gray-300">React (Learning)</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-[#00d4ff] rounded-full flex items-center justify-center text-black text-xl">MongoDB</div>
+                    <p class="text-gray-300">MongoDB (Learning)</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-[#00d4ff] rounded-full flex items-center justify-center text-black text-xl">Git</div>
+                    <p class="text-gray-300">Git/GitHub</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-[#00d4ff] rounded-full flex items-center justify-center text-black text-xl">Canva</div>
+                    <p class="text-gray-300">Canva</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 parallax" style="background-image: url('https://via.placeholder.com/1920x1080');">
+        <div class="container mx-auto px-4 fade-in">
+            <h2 class="text-4xl font-bold text-center neon-text">Contact Me</h2>
+            <div class="text-center mb-6">
+                <p class="text-gray-300">Phone: <a href="tel:+919430594489" class="text-[#00d4ff]">094305 94489</a></p>
+                <p class="text-gray-300">Email: <a href="mailto:kushagraaman6@gmail.com" class="text-[#00d4ff]">kushagraaman6@gmail.com</a></p>
+                <p class="text-gray-300">Location: Patna, Bihar 804453</p>
+            </div>
+            <form id="contact-form" class="max-w-lg mx-auto bg-[#1a1a2e] p-8 rounded-lg border border-[#00d4ff]">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-300 mb-2">Name</label>
+                    <input type="text" id="name" class="w-full p-3 border border-[#00d4ff] bg-[#0a0a1a] text-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-300 mb-2">Email</label>
+                    <input type="email" id="email" class="w-full p-3 border border-[#00d4ff] bg-[#0a0a1a] text-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-300 mb-2">Message</label>
+                    <textarea id="message" class="w-full p-3 border border-[#00d4ff] bg-[#0a0a1a] text-gray-300 rounded-md" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="bg-[#00d4ff] text-black px-6 py-3 rounded-full font-semibold hover:bg-transparent hover:text-[#00d4ff] hover:border-2 hover:border-[#00d4ff]">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a1a] text-gray-300 py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Kushagra Aman. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="https://linkedin.com/in/kushagra-aman" class="text-gray-400 hover:text-[#00d4ff] mx-2" target="_blank">LinkedIn</a>
+                <a href="https://github.com/kushagraaman" class="text-gray-400 hover:text-[#00d4ff] mx-2" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particle Background
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const particles = [];
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = '#00d4ff';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        for (let i = 0; i < 100; i++) particles.push(new Particle());
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(element => observer.observe(element));
+
+        // Contact form validation
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            if (name && email && message) {
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            } else {
+                alert('Please fill out all fields.');
+            }
+        });
+    </script>
+</body>
+</html>

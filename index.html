@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,102 +8,7 @@
     <title>Kushagra Aman - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { 
-            background: linear-gradient(180deg, #0a0a1a, #1a1a2e); 
-            color: #e0e0e0; 
-            font-family: 'Orbitron', sans-serif; 
-        }
-        .parallax { 
-            background-attachment: fixed; 
-            background-size: cover; 
-            background-position: center; 
-        }
-        .neon-text { 
-            text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff; 
-            animation: pulse 2s ease-in-out infinite; 
-        }
-        @keyframes pulse { 
-            0% { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff; } 
-            50% { text-shadow: 0 0 15px #00d4ff, 0 0 25px #00d4ff, 0 0 40px #00d4ff; } 
-            100% { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff; } 
-        }
-        .fade-in { 
-            opacity: 0; 
-            transform: translateY(20px); 
-            transition: all 0.8s ease-in-out; 
-        }
-        .fade-in.visible { 
-            opacity: 1; 
-            transform: translateY(0); 
-        }
-        .hover-scale { 
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
-        }
-        .hover-scale:hover { 
-            transform: scale(1.05); 
-            box-shadow: 0 0 15px #00d4ff; 
-        }
-        nav a { 
-            transition: color 0.3s ease; 
-        }
-        nav a:hover { 
-            color: #00d4ff; 
-        }
-        .particle-bg { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            z-index: -1; 
-        }
-        .svg-animation path { 
-            stroke: #00d4ff; 
-            stroke-width: 2; 
-            fill: none; 
-            stroke-dasharray: 1000; 
-            stroke-dashoffset: 1000; 
-            animation: draw 5s linear forwards; 
-        }
-        @keyframes draw { 
-            to { stroke-dashoffset: 0; } 
-        }
-        .project-card { 
-            background: linear-gradient(135deg, #1a1a2e, #2a2a4a); 
-            border: 1px solid #00d4ff; 
-            position: relative; 
-            overflow: hidden; 
-        }
-        .project-card::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; 
-            left: -100%; 
-            width: 100%; 
-            height: 100%; 
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent); 
-            transition: 0.5s; 
-        }
-        .project-card:hover::before { 
-            left: 100%; 
-        }
-
-        .video-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    filter: brightness(0.7) contrast(1.1); /* Adjust for cyberpunk vibe and text readability */
-}
-.project-card {
-    background: rgba(26, 26, 46, 0.8); /* Semi-transparent to let video show through */
-    backdrop-filter: blur(5px); /* Subtle blur for modern look */
-}
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -134,11 +40,11 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 parallax" style="background-image: url('aboutneon.jpg');">
+    <section id="about" class="py-20 parallax" style="background-image: url('assets/aboutneon.jpg');">
         <div class="container mx-auto px-4 fade-in">
             <h2 class="text-4xl font-bold text-center neon-text">About Me</h2>
             <div class="flex flex-col md:flex-row items-center bg-[#1a1a2e] p-8 rounded-lg border border-[#00d4ff]">
-                <img src="profile.png" alt="Kushagra Aman" class="w-64 h-64 rounded-full mb-6 md:mb-0 md:mr-8 border-4 border-[#00d4ff]">
+                <img src="assets/profile.png" alt="Kushagra Aman" class="w-64 h-64 rounded-full mb-6 md:mb-0 md:mr-8 border-4 border-[#00d4ff]">
                 <div>
                     <p class="text-lg text-gray-300 leading-relaxed">
                         I'm a passionate Web Developer with over a year of experience in crafting scalable web applications using ASP.NET, C#, JavaScript, and MySQL. 
@@ -188,41 +94,41 @@
     </section>
 
     <!-- Projects Section -->
-   <section id="projects" class="py-20 relative overflow-hidden">
-    <video autoplay muted loop playsinline class="video-bg">
-        <source src="project.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="container mx-auto px-4 fade-in relative z-10">
-        <h2 class="text-4xl font-bold text-center neon-text">My Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="project-card p-6 rounded-lg hover-scale">
-                <img src="dlusionP.png" alt="Delusion Music Player" class="w-full h-48 object-cover rounded-md mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Delusion – Music Player Web App</h3>
-                <p class="text-gray-300">2025 | HTML, CSS, JavaScript, YouTube API</p>
-                <p class="text-gray-300">A responsive music player with YouTube API for streaming and playback controls.</p>
-            </div>
-            <div class="project-card p-6 rounded-lg hover-scale">
-                <img src="https://via.placeholder.com/400x200" alt="Library Management System" class="w-full h-48 object-cover rounded-md mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Library Management System</h3>
-                <p class="text-gray-300">2024 | ASP.NET, C#, MySQL, HTML, CSS</p>
-                <p class="text-gray-300">A full-stack CRUD app for book records, built with MVC architecture.</p>
-            </div>
-            <div class="project-card p-6 rounded-lg hover-scale">
-                <img src="https://via.placeholder.com/400x200" alt="NGO Website" class="w-full h-48 object-cover rounded-md mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">NGO Website with Donation Page</h3>
-                <p class="text-gray-300">2024 | HTML, CSS, JavaScript</p>
-                <p class="text-gray-300">A static, accessible NGO website with a donation interface.</p>
-            </div>
-            <div class="project-card p-6 rounded-lg hover-scale">
-                <img src="https://via.placeholder.com/400x200" alt="Restaurant Management System" class="w-full h-48 object-cover rounded-md mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Restaurant Management System</h3>
-                <p class="text-gray-300">ASP.NET, C#, MySQL</p>
-                <p class="text-gray-300">A web system for order tracking and menu management.</p>
+    <section id="projects" class="py-20 relative overflow-hidden">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="assets/project.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container mx-auto px-4 fade-in relative z-10">
+            <h2 class="text-4xl font-bold text-center neon-text">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="project-card p-6 rounded-lg hover-scale">
+                    <img src="assets/dlusionP.png" alt="Delusion Music Player" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Delusion – Music Player Web App</h3>
+                    <p class="text-gray-300">2025 | HTML, CSS, JavaScript, YouTube API</p>
+                    <p class="text-gray-300">A responsive music player with YouTube API for streaming and playback controls.</p>
+                </div>
+                <div class="project-card p-6 rounded-lg hover-scale">
+                    <img src="https://via.placeholder.com/400x200" alt="Library Management System" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Library Management System</h3>
+                    <p class="text-gray-300">2024 | ASP.NET, C#, MySQL, HTML, CSS</p>
+                    <p class="text-gray-300">A full-stack CRUD app for book records, built with MVC architecture.</p>
+                </div>
+                <div class="project-card p-6 rounded-lg hover-scale">
+                    <img src="https://via.placeholder.com/400x200" alt="NGO Website" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">NGO Website with Donation Page</h3>
+                    <p class="text-gray-300">2024 | HTML, CSS, JavaScript</p>
+                    <p class="text-gray-300">A static, accessible NGO website with a donation interface.</p>
+                </div>
+                <div class="project-card p-6 rounded-lg hover-scale">
+                    <img src="https://via.placeholder.com/400x200" alt="Restaurant Management System" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-[#00d4ff]">Restaurant Management System</h3>
+                    <p class="text-gray-300">ASP.NET, C#, MySQL</p>
+                    <p class="text-gray-300">A web system for order tracking and menu management.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Skills Section -->
     <section id="skills" class="py-20">
@@ -311,76 +217,7 @@
         </div>
     </footer>
 
-    <script>
-        // Particle Background
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const particles = [];
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-            }
-            draw() {
-                ctx.fillStyle = '#00d4ff';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        for (let i = 0; i < 100; i++) particles.push(new Particle());
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Fade-in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        fadeElements.forEach(element => observer.observe(element));
-
-        // Contact form validation
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            if (name && email && message) {
-                alert('Thank you for your message! I will get back to you soon.');
-                this.reset();
-            } else {
-                alert('Please fill out all fields.');
-            }
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
+```
